@@ -27,12 +27,12 @@ fun main() {
 
     fun getRaceRecords(race: Pair<Long, Long>): Int {
         val (totalTime, recordDistance) = race
-        val records = mutableListOf<Pair<Long, Long>>()
+        var records = 0
         (1 until totalTime).forEach { time ->
             val currentDistance = time * (totalTime - time)
-            if (currentDistance > recordDistance) records.add(Pair(time, currentDistance))
+            if (currentDistance > recordDistance) records++
         }
-        return records.size
+        return records
     }
 
     fun part2(input: List<String>): Int {
